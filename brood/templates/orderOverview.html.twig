@@ -1,0 +1,32 @@
+<h1> Overview bestellingen </h1>
+<table>
+<thead>
+  <tr>
+    <th>Besteldatum</th>
+    <th>Afhaaldatum</th>
+    <th>Bestelnummer</th>
+    <th>Klant</th>
+    <th>Telefoonnummer</th>
+    <th>Soort bestelling</th>
+    <th>Bestelling</th>
+  </tr>
+</thead>
+  <tbody>
+    {% for order in orders %}
+      {% set ordered_items =  order.order_items|split(',0') %} 
+      <tr> 
+        <td>{{ order.order_date|date("d/m/Y") }}</td>
+        {% if  order.order_date|date("N") == 2 %}
+        <td>{{ order.order_date|date_modify("+2 day")|date("d/m/Y") }}</td>
+        {% else %}
+        <td>{{ order.order_date|date_modify("+1 day")|date("d/m/Y") }}</td>
+        {% endif %}   
+        <td>0X{{ order.id }}</td>
+        <td>{{order.first_name}} {{ order.last_name }}</td>
+        <td>{{ order.phone }}</td>
+        <td>{{ order.order_type }}</td>
+        <td>{{ ordered_items[0] }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>

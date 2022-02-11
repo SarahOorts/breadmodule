@@ -1,0 +1,18 @@
+<h1> Item overview </h1>
+
+<table>
+<thead>
+<tr>
+    <th>Soort</th>
+    <th>Item</th>
+  </tr>
+</thead>
+<tbody>
+  {% for item in items %}
+    <tr>
+      <td>{{item.order_type}}</td>
+      <td>{{ item.items }}</td>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>

@@ -1,0 +1,13 @@
+order.overview:
+  path: '/admin/config/user-interface/brood/orderOverview'
+  defaults:
+    _controller: '\Drupal\brood\Controller\BroodoverviewController::OrderOverviewPage'
+  requirements:
+    _permission: 'access administration pages'
+
+items.overview:
+  path: '/admin/config/user-interface/brood/itemOverview'
+  defaults:
+    _controller: '\Drupal\brood\Controller\BroodoverviewController::ItemOverviewPage'
+  requirements:
+    _permission: 'access administration pages'

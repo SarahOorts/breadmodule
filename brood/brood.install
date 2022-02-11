@@ -1,0 +1,158 @@
+<?php
+
+function brood_schema()
+{
+    //database schema for storing all the orders made
+    $schema['brood_orders'] = [
+        'description' => 'Stores the orders made through the bread module',
+        'fields' => [
+            'id' => [
+                'description' => 'id for the bread module table',
+                'type' => 'serial',
+                'not null' => true,
+                'unsigned' => true
+            ],
+            'first_name' => [
+                'description' => 'first name of customer',
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 100,
+                'default' => ''
+            ],
+            'last_name' => [
+                'description' => 'last name of customer',
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 100,
+                'default' => ''
+            ],
+            'phone' => [
+                'description' => 'phone number of customer',
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 100,
+                'default' => ''
+            ],
+            'order_type' => [
+                'description' => 'bread or pastry or both ordered',
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 32,
+                'default' => ''
+            ],
+            'order_items' => [
+                'description' => 'values of items that where ordered',
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 500,
+                'default' => ''
+            ],
+            'order_date' => [
+                'description' => 'timestamp when the items where ordered',
+                'type' => 'int',
+                'default' => 0,
+                'unsigned' => true,
+                'not null' => true
+            ],
+        ],
+        'primary key' => ['id']
+    ];
+
+    //database schema for storing items that can be ordered
+    $schema['brood_types'] = [
+        'description' => 'Stores the orders made through the bread module',
+        'fields' => [
+            'id' => [
+                'description' => 'id for the bread module table',
+                'type' => 'serial',
+                'not null' => true,
+                'unsigned' => true
+            ],
+            'order_type' => [
+                'description' => 'bread or pastry type',
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 32,
+                'default' => ''
+            ],
+            'items' => [
+                'description' => 'item name',
+                'type' => 'varchar',
+                'not null' => true,
+                'length' => 255,
+                'default' => ''
+            ]
+        ],
+        'primary key' => ['id']
+    ];
+    return $schema;
+}
+
+//insert order table into db
+function brood_update_8001()
+{
+    $database = Drupal::database();
+    $schema = $database->schema();
+    $table_name = 'brood_orders';
+  
+    $table_schema =  brood_schema();
+
+    $schema->createTable($table_name, $table_schema['brood_orders']);
+}
+
+//insert item table into db
+function brood_update_8002()
+{
+    $database = Drupal::database();
+    $schema = $database->schema();
+    $table_name = 'brood_types';
+  
+    $table_schema =  brood_schema();
+
+    $schema->createTable($table_name, $table_schema['brood_types']);
+}
+
+function brood_install()
+{
+    db_insert('brood_types')
+            ->fields(array(
+                'order_type' => 'brood',
+                'items' => 'waldkorn'
+            ))
+            ->execute();
+
+    db_insert('brood_types')
+            ->fields(array(
+                'order_type' => 'brood',
+                'items' => 'wit'
+            ))
+            ->execute();
+
+    db_insert('brood_types')
+            ->fields(array(
+                'order_type' => 'brood',
+                'items' => 'grijs'
+            ))
+            ->execute();
+
+    db_insert('brood_types')
+            ->fields(array(
+                'order_type' => 'koek',
+                'items' => 'chocoladekoek'
+            ))
+            ->execute();
+
+    db_insert('brood_types')
+            ->fields(array(
+                'order_type' => 'koek',
+                'items' => 'carré confituur'
+            ))
+            ->execute();
+
+    db_insert('brood_types')
+            ->fields(array(
+                'order_type' => 'koek',
+                'items' => 'kersenflap'
+            ))
+            ->execute();
+}

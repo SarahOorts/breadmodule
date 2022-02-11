@@ -1,0 +1,4 @@
+type: module
+name: Brood
+description: 'custom module for use on bakkerij Peeters website'
+core_version_requirement: ^8.8 || ^9

@@ -1,0 +1,44 @@
+/*form*/
+#block-broodblock{    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.broodform input{
+    border-radius: 5px;
+    border: none;
+}
+
+.form-radios, .form-checkboxes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.broodform_submit{
+    margin: 50px;
+    background-color: bisque;
+    padding: 10px;
+}
+
+.broodform_submit:hover{
+    color: bisque;
+    background-color: black;
+}
+
+.broodform label{
+    font-size: 20px;
+}
+
+.broodform > .form-item-title{
+    margin-bottom: 30px;
+}
+
+.form-item-title label{
+    font-size: 36px;
+    color: bisque;
+    font-weight: 700;
+}

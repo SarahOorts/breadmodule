@@ -1,0 +1,5 @@
+brood:
+  version: VERSION
+  css:
+    component:
+      css/brood.css: {}

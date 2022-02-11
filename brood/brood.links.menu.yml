@@ -1,0 +1,15 @@
+order.overview:
+  title: 'Order overview'
+  description: 'An overview of all orders for bakkerij Peeters'
+  weight: 10
+  parent: system.admin_config_ui
+  route_name: order.overview
+  menu_name: order overview
+
+items.overview:
+  title: 'Bakery items overview'
+  description: 'this is an overview of all the bakery items offered by bakkerij Peeters'
+  weight: 11
+  parent: system.admin_config_ui
+  route_name: items.overview
+  menu_name: item overview

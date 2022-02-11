@@ -1,0 +1,15 @@
+<?php
+    function brood_theme() {
+        return [
+            'orderOverview' => [
+                'variables' => [
+                    'orders' => [],
+                    ],
+            ],
+            'itemOverview' => [
+                'variables' => [
+                    'items' => [],
+                ],
+            ],
+        ];
+    }
